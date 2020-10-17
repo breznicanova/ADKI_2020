@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
@@ -29,25 +30,34 @@ public:
     QVBoxLayout *verticalLayout;
     QPushButton *pushButton;
     QSpacerItem *verticalSpacer;
-    QLabel *label;
     QLabel *label_2;
+    QComboBox *comboBox;
     QSpacerItem *verticalSpacer_2;
     QPushButton *pushButton_2;
+    QLabel *label;
+    QSpacerItem *verticalSpacer_3;
+    QPushButton *pushButton_3;
 
     void setupUi(QWidget *Widget)
     {
         if (Widget->objectName().isEmpty())
             Widget->setObjectName(QString::fromUtf8("Widget"));
-        Widget->resize(952, 656);
+        Widget->resize(1280, 1024);
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(Widget->sizePolicy().hasHeightForWidth());
+        Widget->setSizePolicy(sizePolicy);
         horizontalLayout = new QHBoxLayout(Widget);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         Canvas = new Draw(Widget);
         Canvas->setObjectName(QString::fromUtf8("Canvas"));
-        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-        sizePolicy.setHorizontalStretch(1);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(Canvas->sizePolicy().hasHeightForWidth());
-        Canvas->setSizePolicy(sizePolicy);
+        QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy1.setHorizontalStretch(1);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(Canvas->sizePolicy().hasHeightForWidth());
+        Canvas->setSizePolicy(sizePolicy1);
+        Canvas->setAutoFillBackground(false);
 
         horizontalLayout->addWidget(Canvas);
 
@@ -62,15 +72,17 @@ public:
 
         verticalLayout->addItem(verticalSpacer);
 
-        label = new QLabel(Widget);
-        label->setObjectName(QString::fromUtf8("label"));
-
-        verticalLayout->addWidget(label);
-
         label_2 = new QLabel(Widget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
 
         verticalLayout->addWidget(label_2);
+
+        comboBox = new QComboBox(Widget);
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->setObjectName(QString::fromUtf8("comboBox"));
+
+        verticalLayout->addWidget(comboBox);
 
         verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -80,6 +92,24 @@ public:
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
 
         verticalLayout->addWidget(pushButton_2);
+
+        label = new QLabel(Widget);
+        label->setObjectName(QString::fromUtf8("label"));
+        QFont font;
+        font.setBold(true);
+        font.setWeight(75);
+        label->setFont(font);
+
+        verticalLayout->addWidget(label);
+
+        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer_3);
+
+        pushButton_3 = new QPushButton(Widget);
+        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+
+        verticalLayout->addWidget(pushButton_3);
 
 
         horizontalLayout->addLayout(verticalLayout);
@@ -92,11 +122,15 @@ public:
 
     void retranslateUi(QWidget *Widget)
     {
-        Widget->setWindowTitle(QCoreApplication::translate("Widget", "Compute polygon area", nullptr));
-        pushButton->setText(QCoreApplication::translate("Widget", "Compute area", nullptr));
-        label->setText(QCoreApplication::translate("Widget", "Area:", nullptr));
-        label_2->setText(QString());
-        pushButton_2->setText(QCoreApplication::translate("Widget", "Clear all", nullptr));
+        Widget->setWindowTitle(QCoreApplication::translate("Widget", "Point and Polygon Position", nullptr));
+        pushButton->setText(QCoreApplication::translate("Widget", "Draw point/polygon", nullptr));
+        label_2->setText(QCoreApplication::translate("Widget", "Select method:", nullptr));
+        comboBox->setItemText(0, QCoreApplication::translate("Widget", "Winding Number Algorithm", nullptr));
+        comboBox->setItemText(1, QCoreApplication::translate("Widget", "Ray Crossing Algorithm", nullptr));
+
+        pushButton_2->setText(QCoreApplication::translate("Widget", "Analyze", nullptr));
+        label->setText(QString());
+        pushButton_3->setText(QCoreApplication::translate("Widget", "Clear", nullptr));
     } // retranslateUi
 
 };
