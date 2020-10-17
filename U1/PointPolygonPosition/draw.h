@@ -15,7 +15,6 @@ private:
 
 public:
     explicit Draw(QWidget *parent = nullptr);
-
     void mousePressEvent(QMouseEvent *e);
     void paintEvent(QPaintEvent *e);
     void changeMode(){draw_mode = !draw_mode;}

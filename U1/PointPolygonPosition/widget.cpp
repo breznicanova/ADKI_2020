@@ -1,6 +1,12 @@
 #include "widget.h"
 #include "ui_widget.h"
 #include "algorithms.h"
+#include <QtGui>
+#include <QMessageBox>
+#include <fstream>
+#include <string.h>
+#include "qdebug.h"
+#include <QFileDialog>
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
@@ -16,14 +22,14 @@ Widget::~Widget()
 }
 
 
-void Widget::on_pushButton_clicked()
+void Widget::on_drawPointPolygon_clicked()
 {
     //Change drawing mode
     ui->Canvas->changeMode();
 }
 
 
-void Widget::on_pushButton_2_clicked()
+void Widget::on_analyze_clicked()
 {
     //Get point q
     QPoint &q= ui->Canvas->getPoint();
@@ -51,7 +57,7 @@ void Widget::on_pushButton_2_clicked()
 }
 
 
-void Widget::on_pushButton_3_clicked()
+void Widget::on_clear_clicked()
 {
     //Get polygon
     std::vector<QPoint>& polygon = ui->Canvas->getPolygon();
@@ -62,3 +68,4 @@ void Widget::on_pushButton_3_clicked()
     //Repaint screen
     repaint();
 }
+
