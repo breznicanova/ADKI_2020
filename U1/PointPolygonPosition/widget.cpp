@@ -69,3 +69,18 @@ void Widget::on_clear_clicked()
     repaint();
 }
 
+
+void Widget::on_importPolygons_clicked()
+{
+
+    //Select text file with polygons coordinates
+    QString sourceFile = QFileDialog::getOpenFileName(this, "Select text file",
+                                                       "C://",
+                                                       "Text file (*.txt)");
+
+    //Convert path from QString to string
+    std::string sourceFileToStd = sourceFile.toStdString();
+
+    //Load polygons
+    ui->Canvas->importPolygon(sourceFileToStd);
+}

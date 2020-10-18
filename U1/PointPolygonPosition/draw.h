@@ -4,6 +4,12 @@
 #include <vector>
 #include <QWidget>
 #include <QtGui>
+#include <fstream>
+#include <string>
+#include <iostream>
+#include <QPainterPath>
+#include <QBrush>
+#include <QPen>
 
 class Draw : public QWidget
 {
@@ -20,6 +26,7 @@ public:
     void changeMode(){draw_mode = !draw_mode;}
     QPoint & getPoint(){return q;}
     std::vector<QPoint> & getPolygon (){return polygon;}
+    void importPolygon(std::string path);
 };
 
 #endif // DRAW_H

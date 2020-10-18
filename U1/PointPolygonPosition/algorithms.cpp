@@ -1,5 +1,9 @@
 #include "algorithms.h"
 #include <cmath>
+#include <QMessageBox>
+#include <QtMath>
+#include <QDebug>
+#include <random>
 
 
 Algorithms::Algorithms()

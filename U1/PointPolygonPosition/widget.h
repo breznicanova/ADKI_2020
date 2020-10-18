@@ -20,6 +20,8 @@ private slots:
     void on_analyze_clicked();
     void on_clear_clicked();
 
+    void on_importPolygons_clicked();
+
 private:
     Ui::Widget *ui;
 };
