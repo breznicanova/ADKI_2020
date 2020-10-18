@@ -13,12 +13,14 @@ SOURCES += \
     draw.cpp \
     main.cpp \
     sortbyangle.cpp \
+    sortbycoordinate.cpp \
     widget.cpp
 
 HEADERS += \
     algorithms.h \
     draw.h \
     sortbyangle.h \
+    sortbycoordinate.h \
     widget.h
 
 FORMS += \
