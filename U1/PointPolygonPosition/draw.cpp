@@ -82,35 +82,6 @@ void Draw::importPolygon(std::string path)
         QMessageBox::warning(this, "Error!", "File can't be opened.");
     }
 
-    //Get the number of polygons in text file
-    int polygonCount;
-
-    sourceFile >> polygonCount;
-    //Number of points in the polygon
-    int pointsCount;
-
-    //Vector for single polygon points
-    std::vector<QPoint> singlePolygon;
-
-    //Go through whole file and store all polygons to variable polygon
-    while(sourceFile.good() && polygonCount--)
-    {
-        //Get number of points in one polygon
-        sourceFile >> pointsCount;
-
-        //Go through all points in single polygon and store them in variable single_polygon
-        while(pointsCount--)
-        {
-            QPoint single_point;
-            double point_x, point_y;
-            sourceFile >> point_x;
-            sourceFile >> point_y;
-            single_point.setX(point_x);
-            single_point.setY(point_y);
-            singlePolygon.push_back(single_point);
-        }
-     }
-
     sourceFile.close();
 
 }
