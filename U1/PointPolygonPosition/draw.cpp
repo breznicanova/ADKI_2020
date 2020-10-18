@@ -1,8 +1,4 @@
 #include "draw.h"
-#include <QMessageBox>
-#include <algorithms.h>
-#include <iostream>
-
 
 Draw::Draw(QWidget *parent) : QWidget(parent)
 {
@@ -66,22 +62,4 @@ void Draw::paintEvent(QPaintEvent *e)
 
     //End drawing
     painter.end();
-}
-
-
-void Draw::importPolygon(std::string path)
-{
-    //Open the file
-    std::ifstream sourceFile;
-    sourceFile.open(path);
-
-    //Check if the file is opened
-    if(!sourceFile.is_open())
-    {
-        sourceFile.close();
-        QMessageBox::warning(this, "Error!", "File can't be opened.");
-    }
-
-    sourceFile.close();
-
 }
