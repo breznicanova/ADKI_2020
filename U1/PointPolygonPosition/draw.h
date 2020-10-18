@@ -27,6 +27,7 @@ public:
     QPoint & getPoint(){return q;}
     std::vector<QPoint> & getPolygon (){return polygon;}
     void importPolygon(std::string path);
+
 };
 
 #endif // DRAW_H
